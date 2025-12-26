@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica de Saúde Integrada | Quiropraxia e Acupuntura</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* =========================================
+           ÁREA DE CONFIGURAÇÃO
+           ========================================= */
+        :root {
+            --cor-primaria: #00897b;
+            --cor-secundaria: #004d40;
+            --cor-fundo: #fdfdfd;
+            --cor-fundo-alt: #f0f7f6;
+            --cor-texto: #333333;
+            --cor-borda: #e0e0e0;
+            --max-width: 1200px;
+            --header-height: 80px;
+            --transicao-suave: all 0.3s ease;
+        }
+
+        /* RESET E BASE */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--cor-texto);
+            background-color: var(--cor-fundo);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        img { max-width: 100%; display: block; }
+
+        /* SCROLLBAR PERSONALIZADA (Desktop) */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: var(--cor-primaria); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--cor-secundaria); }
+
+        /* HEADER & NAVEGAÇÃO */
+        header {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            height: var(--header-height);
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 5%;
+            backdrop-filter: blur(5px);
+        }
+
+        /* --- ALTERAÇÃO: ESTILOS DA LOGO --- */
+        .logo { 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; /* Espaço entre imagem e texto */
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            color: var(--cor-primaria); 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            cursor: pointer;
+        }
+
+        /* Configuração da imagem da logo */
+        .logo img {
+            height: 60px; /* Tamanho ideal para desktop */
+            width: auto;
+            object-fit: contain;
+        }
+        /* ---------------------------------- */
+
+        nav ul { display: flex; list-style: none; gap: 2rem; }
+        nav a { text-decoration: none; color: var(--cor-texto); font-weight: 500; transition: var(--transicao-suave); }
+        nav a:hover { color: var(--cor-primaria); }
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--cor-primaria); }
+
+        /* HERO */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 77, 64, 0.7), rgba(0, 77, 64, 0.7)), url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover; background-position: center; background-attachment: fixed;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; padding: 0 20px; color: white;
+        }
+        .hero-content h1 { font-size: 3rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .hero-content p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; margin: 0 auto 2rem auto; }
+        .btn {
+            display: inline-block; padding: 12px 30px;
+            background-color: var(--cor-primaria); color: white;
+            text-decoration: none; border-radius: 50px; font-weight: 600;
+            transition: var(--transicao-suave); border: none; cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 137, 123, 0.4);
+        }
+        .btn:hover { background-color: var(--cor-secundaria); transform: translateY(-3px); }
+
+        /* SEÇÕES */
+        section { padding: 80px 5%; }
+        .section-title { text-align: center; margin-bottom: 3rem; }
+        .section-title h2 { font-size: 2.2rem; color: var(--cor-secundaria); margin-bottom: 10px; }
+        .section-title span { display: block; width: 60px; height: 4px; background: var(--cor-primaria); margin: 0 auto; border-radius: 2px; }
+
+        /* SOBRE */
+        .sobre-container { display: flex; align-items: center; justify-content: center; gap: 4rem; max-width: var(--max-width); margin: 0 auto; }
+        .sobre-img { flex: 1; }
+        .sobre-img img { border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); width: 100%; max-width: 400px; }
+        .sobre-texto { flex: 1.5; }
+        
+        .certificados { margin-top: 20px; display: flex; gap: 20px; flex-wrap: wrap; }
+        .certificado-item {
+            width: 150px; height: auto; border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); border: 2px solid var(--cor-borda);
+            transition: var(--transicao-suave); cursor: pointer; background: white; padding: 5px;
+        }
+        .certificado-item:hover { transform: scale(1.05); border-color: var(--cor-primaria); }
+
+        /* SESSÃO ESPECIALISTA EM DORES */
+        .especialista-section { background-color: white; border-top: 1px solid var(--cor-borda); }
+        .dores-grid {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; max-width: 900px; margin: 0 auto;
+        }
+        .dor-item {
+            background-color: var(--cor-fundo-alt);
+            color: var(--cor-secundaria);
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            border: 1px solid var(--cor-primaria);
+            display: flex; align-items: center; gap: 10px;
+            transition: var(--transicao-suave);
+        }
+        .dor-item i { color: var(--cor-primaria); }
+        .dor-item:hover {
+            background-color: var(--cor-primaria); color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 137, 123, 0.3);
+        }
+        .dor-item:hover i { color: white; }
+
+        /* AMBIENTE */
+        .ambiente { background-color: var(--cor-fundo-alt); }
+        .galeria-wrapper {
+            display: flex; overflow-x: auto; gap: 20px; padding-bottom: 20px;
+            scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+        }
+        .foto-item {
+            min-width: 300px; height: 250px; border-radius: 15px; overflow: hidden;
+            scroll-snap-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: var(--transicao-suave);
+        }
+        .foto-item img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* TABELA DE SERVIÇOS */
+        .servicos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding-bottom: 20px;
+        }
+        @media (min-width: 769px) {
+            .servicos-grid {
+                max-height: 850px; 
+                overflow-y: auto;
+                padding-right: 15px;
+                align-content: start;
+            }
+        }
+        .servico-card {
+            background: white; padding: 30px; border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05); text-align: center;
+            transition: var(--transicao-suave); border: 1px solid transparent;
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .servico-card:hover { border-color: var(--cor-primaria); transform: translateY(-5px); }
+        .servico-icone { font-size: 2.5rem; color: var(--cor-primaria); margin-bottom: 15px; }
+        .preco { font-size: 1.5rem; font-weight: 700; color: var(--cor-secundaria); margin: 15px 0; }
+        
+        .btn-select {
+            background-color: transparent; border: 2px solid var(--cor-primaria);
+            color: var(--cor-primaria); padding: 8px 20px; border-radius: 30px;
+            cursor: pointer; font-weight: 600; transition: var(--transicao-suave);
+        }
+        .btn-select:hover { background-color: var(--cor-primaria); color: white; }
+        
+        .mobile-only-hint { display: none; text-align: center; margin-top: 10px; font-size: 0.9rem; color: #666; }
+
+        /* SESSÃO FEEDBACKS */
+        .feedback-section { background-color: var(--cor-fundo-alt); }
+        .feedback-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+        .video-card {
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: var(--transicao-suave);
+        }
+        .video-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+        
+        .video-wrapper {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            background: #000;
+        }
+        video {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        .cliente-nome {
+            font-weight: 700; color: var(--cor-primaria); margin-bottom: 5px;
+        }
+        .cliente-desc { font-size: 0.9rem; color: #666; font-style: italic; }
+
+
+        /* CONTATO */
+        .contato-container { display: flex; flex-wrap: wrap; gap: 40px; max-width: var(--max-width); margin: 0 auto; }
+        .mapa-box { flex: 1; min-width: 300px; height: 450px; border-radius: 20px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .mapa-box iframe { width: 100%; height: 100%; border: 0; }
+        .form-box { flex: 1; min-width: 300px; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 500; }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; padding: 12px; border: 1px solid var(--cor-borda); border-radius: 8px;
+            font-family: inherit; transition: var(--transicao-suave);
+        }
+        .form-group input:focus { outline: none; border-color: var(--cor-primaria); }
+
+        /* FOOTER */
+        footer { background-color: var(--cor-secundaria); color: white; text-align: center; padding: 40px 20px; }
+        .social-link { font-size: 2rem; color: white; transition: var(--transicao-suave); }
+        .social-link:hover { color: var(--cor-primaria); }
+
+        /* ANIMAÇÃO */
+        .hidden { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+        .show { opacity: 1; transform: translateY(0); }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2rem; }
+            .menu-toggle { display: block; }
+            nav ul {
+                display: none; flex-direction: column; position: absolute;
+                top: var(--header-height); left: 0; width: 100%; background: white;
+                padding: 20px; box-shadow: 0 5px 10px rgba(0,0,0,0.1); text-align: center;
+            }
+            nav ul.active { display: flex; }
+            .sobre-container { flex-direction: column; text-align: center; }
+            .certificados { justify-content: center; }
+            .contato-container { flex-direction: column; }
+
+            /* --- AJUSTE LOGO MOBILE --- */
+            .logo { 
+                font-size: 1rem; /* Diminui a fonte do texto */
+                gap: 8px; /* Diminui espaço entre ícone e texto */
+            }
+            .logo img {
+                height: 45px; /* Diminui a logo no mobile */
+            }
+            /* --------------------------- */
+
+            /* SCROLL HORIZONTAL (SERVIÇOS) */
+            .servicos-grid {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: 20px;
+                padding: 10px 5px 30px 5px;
+                -webkit-overflow-scrolling: touch;
+                max-height: none;
+            }
+            .servico-card { min-width: 85%; scroll-snap-align: center; margin-bottom: 0; }
+
+            /* SCROLL HORIZONTAL (FEEDBACKS) - IGUAL SERVIÇOS */
+            .feedback-grid {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: 20px;
+                padding: 10px 5px 30px 5px;
+                -webkit-overflow-scrolling: touch;
+            }
+            .video-card { min-width: 85%; scroll-snap-align: center; margin-bottom: 0; }
+            
+            .mobile-only-hint { display: block; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="/img/logo.png" alt="">
+            <span>Dr. Emídio Belarmino</span>
+        </div>
+        
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav>
+            <ul id="nav-list">
+                <li><a href="#home" onclick="toggleMenu()">Home</a></li>
+                <li><a href="#sobre" onclick="toggleMenu()">Profissional</a></li>
+                <li><a href="#especialista" onclick="toggleMenu()">Tratamentos</a></li>
+                <li><a href="#servicos" onclick="toggleMenu()">Serviços</a></li>
+                <li><a href="#feedbacks" onclick="toggleMenu()">Depoimentos</a></li>
+                <li><a href="#contato" onclick="toggleMenu()">Agendar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hidden">Equilíbrio para seu Corpo e Mente</h1>
+            <p class="hidden">Especialista em Quiropraxia, Acupuntura e bem-estar integral. Recupere sua qualidade de vida hoje.</p>
+            <p class="hidden">AGENDE A SUA AVALIAÇÃO <B>GRATUITA</B></p>
+            <a href="#servicos" class="btn hidden">Conhecer Tratamentos</a>
+        </div>
+    </section>
+
+    <section id="sobre" class="hidden">
+        <div class="section-title">
+            <h2>Sobre o Profissional</h2>
+            <span></span>
+        </div>
+        <div class="sobre-container">
+            <div class="sobre-img">
+                <img src="/img/profissional2.png" alt="Dr. Especialista">
+            </div>
+            <div class="sobre-texto">
+                <h3>Dr. Emídio Belarmino</h3>
+                <p style="margin-top: 15px;">
+                    Com mais de 10 anos de experiência clínica, dedico minha vida a restaurar a mobilidade e aliviar a dor de meus pacientes através de métodos naturais e não invasivos.
+                </p>
+                <p style="margin-top: 10px;">
+                    Especialista em alinhamento vertebral e medicina tradicional chinesa, busco a causa raiz do problema para um tratamento duradouro.
+                </p>
+                
+                <h4 style="margin-top: 20px;">Certificações:</h4>
+                <div class="certificados">
+                    <img src="/img/cerificado1.jpeg" class="certificado-item" alt="Certificado 1">
+                    <img src="/img/cerificado2.jpeg" class="certificado-item" alt="Certificado 2">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="especialista" class="especialista-section hidden">
+        <div class="section-title">
+            <h2>Especialista em Dores</h2>
+            <span></span>
+            <p style="margin-top: 15px; color: #666;">Tratamento especializado para alívio imediato nas regiões:</p>
+        </div>
+        <div class="dores-grid">
+            <div class="dor-item"><i class="fas fa-check-circle"></i> Coluna Cervical</div>
+            <div class="dor-item"><i class="fas fa-check-circle"></i> Ombro</div>
+            <div class="dor-item"><i class="fas fa-check-circle"></i> Bursite</div>
+            <div class="dor-item"><i class="fas fa-check-circle"></i> Coluna Dorsal</div>
+            <div class="dor-item"><i class="fas fa-check-circle"></i> Tendinite</div>
+            <div class="dor-item"><i class="fas fa-check-circle"></i> Nervo Ciático</div>
+            <div class="dor-item"><i class="fas fa-check-circle"></i> Coluna Lombar</div>
+            <div class="dor-item"><i class="fas fa-check-circle"></i> Joelho e Tornozelo</div>
+        </div>
+    </section>
+
+    <section id="ambiente" class="ambiente hidden">
+        <div class="section-title">
+            <h2>Nosso Espaço</h2>
+            <span></span>
+        </div>
+        <div class="galeria-wrapper">
+            <div class="foto-item">
+                <img src="/img/fachada.jpeg" alt="Recepção">
+            </div>
+            <div class="foto-item">
+                <img src="/img/sala_procedimento.jpeg" alt="Sala Quiropraxia">
+            </div>
+            <div class="foto-item">
+                <img src="https://placehold.co/600x400/e0f2f1/004d40?text=Sala+2" alt="Sala Acupuntura">
+            </div>
+            <div class="foto-item">
+                <img src="https://placehold.co/600x400/e0f2f1/004d40?text=Fachada" alt="Fachada da Clínica">
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 10px; font-size: 0.9rem; color: #666;">
+            <i class="fas fa-arrows-alt-h"></i> Arraste para o lado para ver mais
+        </p>
+    </section>
+
+    <section id="servicos" class="hidden">
+        <div class="section-title">
+            <h2>Tratamentos e Valores</h2>
+            <span></span>
+        </div>
+        
+        <div class="servicos-grid">
+            <div class="servico-card">
+                <div class="servico-icone"><i class="fas fa-spa"></i></div>
+                <h3>Acupuntura</h3>
+                <p>Equilíbrio energético e tratamento de dores com técnica milenar.</p>
+                <div class="preco">R$ 120,00</div>
+                <button class="btn-select" onclick="selecionarServico('Acupuntura')">Agendar este</button>
+            </div>
+            <div class="servico-card">
+                <div class="servico-icone"><i class="fas fa-fire-alt"></i></div>
+                <h3>Ventosaterapia</h3>
+                <p>Melhora a circulação sanguínea e relaxa a musculatura.</p>
+                <div class="preco">R$ 90,00</div>
+                <button class="btn-select" onclick="selecionarServico('Ventosaterapia')">Agendar este</button>
+            </div>
+            <div class="servico-card">
+                <div class="servico-icone"><i class="fas fa-bone"></i></div>
+                <h3>Quiropraxia</h3>
+                <p>Ajustes articulares para alívio de dores nas costas e pescoço.</p>
+                <div class="preco">R$ 150,00</div>
+                <button class="btn-select" onclick="selecionarServico('Quiropraxia')">Agendar este</button>
+            </div>
+            <div class="servico-card">
+                <div class="servico-icone"><i class="fas fa-bolt"></i></div>
+                <h3>Eletro Balance</h3>
+                <p>Reequilíbrio bioenergético através de estímulos elétricos suaves.</p>
+                <div class="preco">R$ 130,00</div>
+                <button class="btn-select" onclick="selecionarServico('Eletro Balance')">Agendar este</button>
+            </div>
+            <div class="servico-card">
+                <div class="servico-icone"><i class="fas fa-microchip"></i></div>
+                <h3>Eletro Acupuntura</h3>
+                <p>Potencializa o efeito das agulhas com estímulos elétricos.</p>
+                <div class="preco">R$ 140,00</div>
+                <button class="btn-select" onclick="selecionarServico('Eletro Acupuntura')">Agendar este</button>
+            </div>
+            <div class="servico-card">
+                <div class="servico-icone"><i class="fas fa-circle-notch"></i></div>
+                <h3>Acupuntura Sistêmica</h3>
+                <p>Tratamento completo focando nos meridianos do corpo todo.</p>
+                <div class="preco">R$ 120,00</div>
+                <button class="btn-select" onclick="selecionarServico('Acupuntura Sistêmica')">Agendar este</button>
+            </div>
+            <div class="servico-card">
+                <div class="servico-icone"><i class="fas fa-magnet"></i></div>
+                <h3>Magnetoterapia</h3>
+                <p>Uso de campos magnéticos nos pontos de acupuntura.</p>
+                <div class="preco">R$ 110,00</div>
+                <button class="btn-select" onclick="selecionarServico('Acupuntura Magnetoterapia')">Agendar este</button>
+            </div>
+            <div class="servico-card">
+                <div class="servico-icone"><i class="fas fa-hands"></i></div>
+                <h3>Massoterapia</h3>
+                <p>Massagem terapêutica para alívio de estresse e tensão.</p>
+                <div class="preco">R$ 100,00</div>
+                <button class="btn-select" onclick="selecionarServico('Massoterapia')">Agendar este</button>
+            </div>
+            <div class="servico-card">
+                <div class="servico-icone"><i class="fas fa-stream"></i></div>
+                <h3>Alinhamento da Coluna</h3>
+                <p>Técnicas manuais para correção postural.</p>
+                <div class="preco">R$ 150,00</div>
+                <button class="btn-select" onclick="selecionarServico('Alinhamento da Coluna')">Agendar este</button>
+            </div>
+            <div class="servico-card">
+                <div class="servico-icone"><i class="fas fa-hand-point-up"></i></div>
+                <h3>Do-in</h3>
+                <p>Automassagem e pressão nos pontos dos meridianos.</p>
+                <div class="preco">R$ 80,00</div>
+                <button class="btn-select" onclick="selecionarServico('Do-in')">Agendar este</button>
+            </div>
+            <div class="servico-card">
+                <div class="servico-icone"><i class="fas fa-hand-holding-heart"></i></div>
+                <h3>Shiatsu</h3>
+                <p>Pressão com os dedos para equilibrar o fluxo de energia vital.</p>
+                <div class="preco">R$ 120,00</div>
+                <button class="btn-select" onclick="selecionarServico('Shiatsu')">Agendar este</button>
+            </div>
+            <div class="servico-card">
+                <div class="servico-icone"><i class="fas fa-shoe-prints"></i></div>
+                <h3>Podólogo</h3>
+                <p>Tratamento especializado para a saúde dos pés.</p>
+                <div class="preco">R$ 90,00</div>
+                <button class="btn-select" onclick="selecionarServico('Podólogo')">Agendar este</button>
+            </div>
+        </div>
+        <p class="mobile-only-hint">
+            <i class="fas fa-arrows-alt-h"></i> Arraste para o lado para ver mais serviços
+        </p>
+    </section>
+
+    <section id="feedbacks" class="feedback-section hidden">
+        <div class="section-title">
+            <h2>O que dizem nossos pacientes</h2>
+            <span></span>
+            <p style="margin-top: 15px; color: #666;">Histórias reais de recuperação e bem-estar.</p>
+        </div>
+        
+        <div class="feedback-grid">
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls playsinline preload="metadata" poster="/img/capa1.png">
+                        <source src="/img/feedback1.mp4" type="video/mp4">
+                        Seu navegador não suporta a tag de vídeo.
+                    </video>
+                </div>
+                <div class="cliente-nome">Maria Silva</div>
+                <div class="cliente-desc">Tratamento de Coluna Lombar</div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls playsinline preload="metadata" poster="https://placehold.co/600x400/e0f2f1/00897b?text=Depoimento+2">
+                        <source src="videos/video2.mp4" type="video/mp4">
+                        Seu navegador não suporta a tag de vídeo.
+                    </video>
+                </div>
+                <div class="cliente-nome">João Pereira</div>
+                <div class="cliente-desc">Recuperação de Tendinite</div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls playsinline preload="metadata" poster="https://placehold.co/600x400/e0f2f1/00897b?text=Depoimento+3">
+                        <source src="videos/video3.mp4" type="video/mp4">
+                        Seu navegador não suporta a tag de vídeo.
+                    </video>
+                </div>
+                <div class="cliente-nome">Ana Costa</div>
+                <div class="cliente-desc">Sessões de Acupuntura</div>
+            </div>
+        </div>
+
+        <p class="mobile-only-hint">
+            <i class="fas fa-arrows-alt-h"></i> Arraste para o lado para ver mais depoimentos
+        </p>
+    </section>
+
+    <section id="contato" class="ambiente hidden">
+        <div class="section-title">
+            <h2>Localização e Agendamento</h2>
+            <span></span>
+        </div>
+        <div class="contato-container">
+            
+            <div class="mapa-box">
+    <iframe src="https://maps.google.com/maps?q=R.+Justino+Nigro,+536+-+Jardim+Regis&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
+    
+    <div style="text-align: center; padding: 10px;">
+        <p style="margin-bottom: 15px; font-weight: 600; color: #004d40; font-size: 0.95rem;">
+            <i class="fas fa-map-marker-alt"></i> A 100m da estação Autódromo
+        </p>
+
+        <a href="https://www.google.com/maps/search/?api=1&query=R.+Justino+Nigro,+536+-+Jardim+Regis" target="_blank" class="btn" style="padding: 8px 20px; font-size: 0.9rem;">Abrir no GPS <i class="fas fa-external-link-alt"></i></a>
+    </div>
+</div>
+
+            <div class="form-box">
+                <form id="whatsappForm" onsubmit="enviarWhatsapp(event)">
+                    <div class="form-group">
+                        <label for="nome">Seu Nome:</label>
+                        <input type="text" id="nome" required placeholder="Digite seu nome">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="servico">Serviço Desejado:</label>
+                        <input type="text" id="servico" readonly placeholder="Selecione na tabela acima">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="data">Data Preferencial (Opcional):</label>
+                        <input type="text" id="data" placeholder="Ex: Amanhã à tarde">
+                    </div>
+
+                    <button type="submit" class="btn" style="width: 100%;">
+                        <i class="fab fa-whatsapp"></i> Enviar Solicitação
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <h3>Clínica Dr. Saúde</h3>
+            <p>Saúde e bem-estar ao seu alcance.</p>
+            <br>
+            <a href="https://instagram.com" target="_blank" class="social-link">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <br><br>
+            <p style="font-size: 0.8rem; opacity: 0.7;">© 2024 Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 1. Controle do Menu Mobile
+        function toggleMenu() {
+            const nav = document.getElementById('nav-list');
+            nav.classList.toggle('active');
+        }
+
+        // 2. Lógica de Seleção de Serviço
+        function selecionarServico(nomeServico) {
+            document.getElementById('servico').value = nomeServico;
+            document.getElementById('contato').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('servico').style.borderColor = '#00897b';
+        }
+
+        // 3. Enviar para o WhatsApp
+        function enviarWhatsapp(e) {
+            e.preventDefault();
+            const telefoneEmpresa = "5511960128667"; 
+
+            const nome = document.getElementById('nome').value;
+            const servico = document.getElementById('servico').value;
+            const data = document.getElementById('data').value;
+
+            if(!servico) {
+                alert("Por favor, selecione um serviço na tabela de preços.");
+                return;
+            }
+            const mensagem = `Olá! Me chamo *${nome}*.\nGostaria de agendar o serviço: *${servico}*.\nPreferencia: ${data}`;
+            const url = `https://wa.me/${telefoneEmpresa}?text=${encodeURIComponent(mensagem)}`;
+            window.open(url, '_blank');
+        }
+
+        // 4. Animação de Scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        });
+        const hiddenElements = document.querySelectorAll('.hidden');
+        hiddenElements.forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>
