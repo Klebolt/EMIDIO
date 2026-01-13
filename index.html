@@ -113,11 +113,16 @@
         .sobre-texto { flex: 1.5; }
         
         .certificados { margin-top: 20px; display: flex; gap: 20px; flex-wrap: wrap; }
+        
+        /* --- AQUI ESTÁ A ALTERAÇÃO SOLICITADA --- */
         .certificado-item {
-            width: 150px; height: auto; border-radius: 10px;
+            width: 280px; /* Aumentado de 150px para 280px para deixar a moldura mais larga */
+            height: auto; border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1); border: 2px solid var(--cor-borda);
             transition: var(--transicao-suave); cursor: pointer; background: white; padding: 5px;
         }
+        /* ---------------------------------------- */
+
         .certificado-item:hover { transform: scale(1.05); border-color: var(--cor-primaria); }
 
         /* SESSÃO ESPECIALISTA EM DORES */
@@ -364,7 +369,7 @@ Iniciei minha capacitação técnica em 1989 com Acupuntura e Auriculoterapia pe
                 
                 <h4 style="margin-top: 20px;">Certificações:</h4>
                 <div class="certificados">
-                    <img src="img/cerificado1.jpeg" class="certificado-item" alt="Certificado 1">
+                    <img src="img/certificado1.png" class="certificado-item" alt="Certificado 1">
                     <img src="img/cerificado2.jpeg" class="certificado-item" alt="Certificado 2">
                 </div>
             </div>
@@ -396,10 +401,10 @@ Iniciei minha capacitação técnica em 1989 com Acupuntura e Auriculoterapia pe
         </div>
         <div class="galeria-wrapper">
             <div class="foto-item">
-                <img src="img/fachada.jpeg" alt="Recepção">
+                <img src="img/FACHADA2.png" alt="Recepção">
             </div>
             <div class="foto-item">
-                <img src="img/sala_procedimento.jpeg" alt="Sala Quiropraxia">
+                <img src="img/sala_procedimento.png" alt="Sala Quiropraxia">
             </div>
             <div class="foto-item">
                 <img src="https://placehold.co/600x400/e0f2f1/004d40?text=Sala+2" alt="Sala Acupuntura">
@@ -511,6 +516,16 @@ Iniciei minha capacitação técnica em 1989 com Acupuntura e Auriculoterapia pe
                 <div class="preco">R$ 120,00</div>
                 <button class="btn-select" onclick="selecionarServico('Massagem Relaxante')">Agendar este</button>
             </div>
+            <div class="servico-card">
+                <div class="servico-icone"><i class="fas fa-hand-holding-medical"></i></div>
+                <h3>Liberação Miofascial</h3>
+                <p>Técnica manual profunda para alívio de tensões musculares.</p>
+                <div class="preco" style="font-size: 1.15rem; line-height: 1.3;">
+                    1hs R$150,00<br>
+                    1:30 R$ 180,00
+                </div>
+                <button class="btn-select" onclick="selecionarServico('Liberação Miofascial')">Agendar este</button>
+            </div>
             </div>
         <p class="mobile-only-hint">
             <i class="fas fa-arrows-alt-h"></i> Arraste para o lado para ver mais serviços
@@ -617,7 +632,7 @@ Iniciei minha capacitação técnica em 1989 com Acupuntura e Auriculoterapia pe
                 <i class="fab fa-instagram"></i>
             </a>
             <br><br>
-            <p style="font-size: 0.8rem; opacity: 0.7;">© 2024 Todos os direitos reservados.</p>
+            <p style="font-size: 0.8rem; opacity: 0.7;">© 2026 Kleber Gomes Todos os direitos reservados.</p>
         </div>
     </footer>
 
