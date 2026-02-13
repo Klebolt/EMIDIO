@@ -252,15 +252,6 @@
         footer { background-color: var(--cor-secundaria); color: white; text-align: center; padding: 40px 20px; }
         .social-link { font-size: 2rem; color: white; transition: var(--transicao-suave); }
         .social-link:hover { color: var(--cor-primaria); }
-        
-        /* NOVO: Classe para o telefone do rodapé */
-        .tel-rodape {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            pointer-events: none; /* Estático no PC */
-            cursor: default;
-        }
 
         /* ANIMAÇÃO */
         .hidden { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
@@ -314,12 +305,6 @@
             .video-card { min-width: 85%; scroll-snap-align: center; margin-bottom: 0; }
             
             .mobile-only-hint { display: block; }
-
-            /* NOVO: Torna o telefone clicável no mobile */
-            .tel-rodape {
-                pointer-events: auto;
-                cursor: pointer;
-            }
         }
     </style>
 </head>
@@ -538,8 +523,8 @@ Iniciei minha capacitação técnica em 1989 com Acupuntura e Auriculoterapia pe
                 <h3>Liberação Miofascial</h3>
                 <p>Técnica manual profunda para alívio de tensões musculares.</p>
                 <div class="preco" style="font-size: 1.15rem; line-height: 1.3;">
-                    1hs R$150,00<br>
-                    1:30 R$ 180,00
+                    1h R$150,00<br>
+                    1h30 R$ 180,00
                 </div>
                 <button class="btn-select" onclick="selecionarServico('Liberação Miofascial')">Agendar este</button>
             </div>
@@ -642,13 +627,9 @@ Iniciei minha capacitação técnica em 1989 com Acupuntura e Auriculoterapia pe
 
     <footer>
         <div class="footer-content">
+            <!-- <h3>Clínica Dr. Saúde</h3> -->
             <p>Saúde e bem-estar ao seu alcance.</p>
             <br>
-            <p style="margin-bottom: 20px;">
-                <i class="fas fa-phone-alt" style="margin-right: 5px;"></i>
-                <a href="tel:1156658967" class="tel-rodape">115665-8967</a>
-            </p>
-
             <a href="https://www.instagram.com/emidiobelarmino?igsh=MXg5MXRoY3o3eGp1dA==" target="_blank" class="social-link">
                 <i class="fab fa-instagram"></i>
             </a>
