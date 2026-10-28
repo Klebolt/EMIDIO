@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <!-- Espaço reservado para Google Tag Manager (GTM) -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Quiropraxia de Interlagos</title>
+    <!-- SEO Básico e Local Otimizado -->
+    <title>Quiropraxia, Acupuntura e Massoterapia em Interlagos, SP | Emídio Belarmino</title>
+    <meta name="description" content="Quiropraxia, acupuntura, massoterapia e liberação miofascial em Interlagos, Zona Sul de SP (a 100m da Estação Autódromo). Tratamento para dor nas costas, ciático e hérnia de disco. Agende no WhatsApp.">
     
-    <meta name="description" content="Especialista em Quiropraxia e Acupuntura em Interlagos. Tratamento para dores na coluna, nervo ciático e bem-estar. Agende sua avaliação com Emídio Belarmino.">
-    
-    <link rel="canonical" href="https://ebquiropraxia.com.br/">
+    <!-- Canonical e Cor do Tema -->
+    <link rel="canonical" href="https://quiropraxiadeinterlagos.com.br/">
+    <meta name="theme-color" content="#00897b">
+
+    <!-- Open Graph (Compartilhamento no WhatsApp, Instagram e Facebook) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://quiropraxiadeinterlagos.com.br/">
+    <meta property="og:title" content="Quiropraxia, Acupuntura e Massoterapia em Interlagos, SP | Emídio Belarmino">
+    <meta property="og:description" content="Quiropraxia, acupuntura, massoterapia e liberação miofascial em Interlagos, Zona Sul de SP (a 100m da Estação Autódromo). Tratamento para dor nas costas, ciático e hérnia de disco. Agende no WhatsApp.">
+    <meta property="og:image" content="img/FACHADA3.png">
+    <meta property="og:locale" content="pt_BR">
 
     <link rel="icon" href="img/logo.png" type="image/png">
     
@@ -96,8 +111,19 @@
             display: flex; align-items: center; justify-content: center;
             text-align: center; padding: 0 20px; color: white;
         }
-        .hero-content h1 { font-size: 3rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
-        .hero-content p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; margin: 0 auto 2rem auto; }
+        .hero-eyebrow {
+            display: inline-block;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 6px 16px;
+            border-radius: 30px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .hero-content h1 { font-size: 3rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); max-width: 900px; margin-left: auto; margin-right: auto; }
+        .hero-content p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 720px; margin: 0 auto 2rem auto; }
         .btn {
             display: inline-block; padding: 12px 30px;
             background-color: var(--cor-primaria); color: white;
@@ -119,6 +145,28 @@
         .sobre-img img { border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); width: 100%; max-width: 400px; }
         .sobre-texto { flex: 1.5; }
         
+        .pilares-sobre {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .pilar-card {
+            background: var(--cor-fundo-alt);
+            padding: 15px;
+            border-radius: 12px;
+            border-left: 4px solid var(--cor-primaria);
+        }
+        .pilar-card h3 {
+            font-size: 1rem;
+            color: var(--cor-secundaria);
+            margin-bottom: 5px;
+        }
+        .pilar-card p {
+            font-size: 0.88rem;
+            color: #555;
+        }
+
         .certificados { margin-top: 20px; display: flex; gap: 20px; flex-wrap: wrap; }
         
         /* --- AQUI ESTÁ A ALTERAÇÃO SOLICITADA --- */
@@ -155,18 +203,53 @@
         }
         .dor-item:hover i { color: white; }
 
-        /* AMBIENTE */
+        /* AMBIENTE / CARROSSEL DO ESPAÇO */
         .ambiente { background-color: var(--cor-fundo-alt); }
+        .carrossel-eyebrow {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--cor-secundaria);
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+        .carrossel-container {
+            position: relative;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
         .galeria-wrapper {
             display: flex; overflow-x: auto; gap: 20px; padding-bottom: 20px;
             scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
         }
         .foto-item {
-            min-width: 300px; height: 250px; border-radius: 15px; overflow: hidden;
-            scroll-snap-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            min-width: calc(40% - 10px); height: 280px; border-radius: 15px; overflow: hidden;
+            scroll-snap-align: start; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: var(--transicao-suave);
         }
         .foto-item img { width: 100%; height: 100%; object-fit: cover; }
+        .carrossel-seta {
+            position: absolute;
+            top: 45%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.9);
+            color: var(--cor-secundaria);
+            border: 1px solid var(--cor-borda);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+            transition: var(--transicao-suave);
+            z-index: 10;
+        }
+        .carrossel-seta:hover { background: var(--cor-primaria); color: white; }
+        .carrossel-seta.prev { left: -15px; }
+        .carrossel-seta.next { right: -15px; }
 
         /* TABELA DE SERVIÇOS */
         .servicos-grid {
@@ -203,6 +286,7 @@
         .btn-select:hover { background-color: var(--cor-primaria); color: white; }
         
         .mobile-only-hint { display: none; text-align: center; margin-top: 10px; font-size: 0.9rem; color: #666; }
+        .servicos-nota { text-align: center; margin-top: 20px; font-size: 0.95rem; color: #555; }
 
         /* SESSÃO FEEDBACKS */
         .feedback-section { background-color: var(--cor-fundo-alt); }
@@ -241,11 +325,56 @@
         }
         .cliente-desc { font-size: 0.9rem; color: #666; font-style: italic; }
 
+        /* SESSÃO DÚVIDAS FREQUENTES (FAQ) */
+        .faq-section { background-color: white; }
+        .faq-container {
+            max-width: 850px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .faq-item {
+            background: var(--cor-fundo-alt);
+            border: 1px solid var(--cor-borda);
+            border-radius: 12px;
+            padding: 20px 25px;
+            transition: var(--transicao-suave);
+        }
+        .faq-item:hover {
+            border-color: var(--cor-primaria);
+        }
+        .faq-item summary {
+            font-weight: 600;
+            color: var(--cor-secundaria);
+            font-size: 1.05rem;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after {
+            content: '+';
+            font-size: 1.4rem;
+            color: var(--cor-primaria);
+            font-weight: 700;
+        }
+        .faq-item[open] summary::after {
+            content: '−';
+        }
+        .faq-item p {
+            margin-top: 12px;
+            color: #444;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
 
         /* CONTATO */
         .contato-container { display: flex; flex-wrap: wrap; gap: 40px; max-width: var(--max-width); margin: 0 auto; }
-        .mapa-box { flex: 1; min-width: 300px; height: 450px; border-radius: 20px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .mapa-box iframe { width: 100%; height: 100%; border: 0; }
+        .mapa-box { flex: 1; min-width: 300px; height: 480px; border-radius: 20px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); background: white; display: flex; flex-direction: column; }
+        .mapa-box iframe { width: 100%; flex: 1; border: 0; }
         .form-box { flex: 1; min-width: 300px; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
         .form-group { margin-bottom: 20px; }
         .form-group label { display: block; margin-bottom: 8px; font-weight: 500; }
@@ -259,6 +388,8 @@
         footer { background-color: var(--cor-secundaria); color: white; text-align: center; padding: 40px 20px; }
         .social-link { font-size: 2rem; color: white; transition: var(--transicao-suave); }
         .social-link:hover { color: var(--cor-primaria); }
+        .footer-nap { font-size: 0.92rem; margin-top: 10px; opacity: 0.9; }
+        .footer-bairros { font-size: 0.82rem; max-width: 750px; margin: 15px auto 0 auto; opacity: 0.8; line-height: 1.5; }
 
         /* ANIMAÇÃO */
         .hidden { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
@@ -266,7 +397,8 @@
 
         /* MOBILE */
         @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2rem; }
+            .hero-content h1 { font-size: 1.9rem; }
+            .hero-eyebrow { font-size: 0.78rem; }
             .menu-toggle { display: block; }
             nav ul {
                 display: none; flex-direction: column; position: absolute;
@@ -275,6 +407,7 @@
             }
             nav ul.active { display: flex; }
             .sobre-container { flex-direction: column; text-align: center; }
+            .pilares-sobre { text-align: left; }
             .certificados { justify-content: center; }
             .contato-container { flex-direction: column; }
 
@@ -287,6 +420,9 @@
                 height: 45px; /* Diminui a logo no mobile */
             }
             /* --------------------------- */
+
+            .foto-item { min-width: 85%; height: 240px; scroll-snap-align: center; }
+            .carrossel-seta { display: none; }
 
             /* SCROLL HORIZONTAL (SERVIÇOS) */
             .servicos-grid {
@@ -315,41 +451,110 @@
         }
     </style>
 
+    <!-- Schema.org JSON-LD: MedicalBusiness + FAQPage -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "MedicalBusiness",
-      "name": "Emídio Belarmino - Quiropraxia e Acupuntura",
-      "image": "https://ebquiropraxia.com.br/img/logo.png",
-      "@id": "",
-      "url": "https://ebquiropraxia.com.br",
-      "telephone": "+5511989840063",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Sua Rua, Número", 
-        "addressLocality": "São Paulo",
-        "addressRegion": "SP",
-        "postalCode": "04820-000",
-        "addressCountry": "BR",
-        "description": "Interlagos"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": -23.7011, 
-        "longitude": -46.6972
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday"
-        ],
-        "opens": "08:00",
-        "closes": "19:00"
-      }
+      "@graph": [
+        {
+          "@type": "MedicalBusiness",
+          "@id": "https://quiropraxiadeinterlagos.com.br/#consultorio",
+          "name": "Quiropraxia de Interlagos - Emídio Belarmino",
+          "image": "img/logo.png",
+          "logo": "img/logo.png",
+          "url": "https://quiropraxiadeinterlagos.com.br/",
+          "telephone": "+5511989840063",
+          "priceRange": "R$ 100 - R$ 250",
+          "paymentAccepted": "Pix, Dinheiro, Cartão de Débito, Cartão de Crédito",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Rua Justino Nigro, 536",
+            "addressLocality": "São Paulo",
+            "addressRegion": "SP",
+            "postalCode": "04820-000",
+            "addressCountry": "BR",
+            "description": "Interlagos / Jardim Regis - A 100m da Estação Autódromo"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -23.7011,
+            "longitude": -46.6972
+          },
+          "areaServed": [
+            "Interlagos",
+            "Jardim Regis",
+            "Cidade Dutra",
+            "Socorro",
+            "Veleiros",
+            "Santo Amaro",
+            "Jardim Marajoara",
+            "Jardim Consórcio",
+            "Capela do Socorro",
+            "Grajaú",
+            "Zona Sul de São Paulo"
+          ],
+          "sameAs": [
+            "https://www.instagram.com/emidiobelarmino"
+          ],
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+            ],
+            "opens": "08:00",
+            "closes": "19:00"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Quiropraxia dói? Os estalos na coluna são seguros?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Não dói. O ajuste quiroprático é uma manobra rápida, precisa e indolor que gera alívio imediato. O barulho de estalo é apenas a liberação natural de pequenas bolhas de gás da articulação quando ela é descomprimida — totalmente seguro quando feito por profissional qualificado com mais de 25 anos de experiência."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Qual a diferença entre quiropraxia, acupuntura e massoterapia?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A quiropraxia foca no alinhamento das articulações e vértebras da coluna, tirando a pressão sobre os nervos. A massoterapia e a liberação miofascial trabalham diretamente nos músculos e tendões, desfazendo contraturas e nós de tensão. Já a acupuntura atua no equilíbrio energético e no alívio profundo da dor e inflamação. No consultório em Interlagos, indicamos a técnica ideal para a sua queixa."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Quem tem hérnia de disco ou nervo ciático inflamado pode fazer quiropraxia?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sim! A quiropraxia e a acupuntura estão entre os tratamentos conservadores mais eficazes para hérnia de disco e dor ciática sem cirurgia. Avaliamos o seu caso gratuitamente e aplicamos técnicas seguras para descomprimir a raiz nervosa, reduzindo a dor, a queimação e o formigamento nas pernas."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Quantas sessões são necessárias para destravar a coluna ou aliviar a dor?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Na grande maioria dos casos você já sai da primeira sessão sentindo grande alívio e mais liberdade de movimento. O número total de sessões depende do tempo em que você convive com a dor e da sua rotina — na avaliação inicial montamos a recomendação exata para você."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Onde fica o consultório? Atende quem mora perto de Interlagos?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Nosso consultório fica na Rua Justino Nigro, 536 (Interlagos / Jardim Regis), Zona Sul de São Paulo, a apenas 100 metros da Estação Autódromo da CPTM. Recebemos pacientes de Interlagos, Cidade Dutra, Socorro, Veleiros, Santo Amaro, Jardim Marajoara, Capela do Socorro e Grajaú."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
 </head>
@@ -357,7 +562,7 @@
 
     <header>
         <div class="logo">
-            <img src="img/logo.png" alt="Emídio Belarmino Quiropraxia Interlagos">
+            <img src="img/logo.png" alt="Logo Quiropraxia de Interlagos - Emídio Belarmino" width="60" height="60">
             <span>Emídio Belarmino</span>
         </div>
         
@@ -371,6 +576,7 @@
                 <li><a href="#especialista" onclick="toggleMenu()">Tratamentos</a></li>
                 <li><a href="#servicos" onclick="toggleMenu()">Serviços</a></li>
                 <li><a href="#feedbacks" onclick="toggleMenu()">Depoimentos</a></li>
+                <li><a href="#duvidas" onclick="toggleMenu()">Dúvidas</a></li>
                 <li><a href="#contato" onclick="toggleMenu()">Agendar</a></li>
             </ul>
         </nav>
@@ -378,16 +584,16 @@
 
     <section id="home" class="hero">
         <div class="hero-content">
+            <br><br>
+            <span class="hero-eyebrow hidden">Quiropraxia, Acupuntura & Massoterapia • Interlagos, Zona Sul SP</span>
+            <h1 class="hidden">Alívio para Dores na Coluna com Quiropraxia e Acupuntura em Interlagos</h1>
+            <p class="hidden">Recupere sua qualidade de vida com Emídio Belarmino. Consultório especializado em alinhamento vertebral, massoterapia clínica e liberação miofascial para dor lombar, nervo ciático, hérnia de disco e tensão muscular — a 100 metros da Estação Autódromo.</p>
+            <p class="hidden">AGENDE A SUA AVALIAÇÃO <b>GRATUITA</b></p>
+
+            <a href="#servicos" class="btn hidden" onclick="registrarEventoLead('hero_conhecer_tratamentos')">Conhecer Tratamentos</a>
+
             <br><br><br>
-            <h1 class="hidden">Acupunturaterapia em Interlagos</h1>
-            <p class="hidden">Recupere sua qualidade de vida com Emídio Belarmino. Especialista em alinhamento vertebral e bem-estar integral a poucos metros da estação Autódromo.</p>
-            <p class="hidden">AGENDE A SUA AVALIAÇÃO <B>GRATUITA</B></p>
-
-
-            <a href="#servicos" class="btn hidden">Conhecer Tratamentos</a>
-
-            <BR><BR><BR>
-            <p class="hidden"><B>Atendimento com hora marcada</B></p>
+            <p class="hidden"><b>Atendimento com hora marcada</b></p>
             <p class="hidden">(Terça à Sábado)</p>
             <p class="hidden">08h às 19h</p>
         </div>
@@ -395,27 +601,43 @@
 
     <section id="sobre" class="hidden">
         <div class="section-title">
-            <h2>Sobre o Profissional</h2>
+            <h2>Um Espaço de Quiropraxia e Acupuntura em Interlagos, Focado na sua Recuperação</h2>
             <span></span>
         </div>
         <div class="sobre-container">
             <div class="sobre-img">
-                <img src="img/profissional2.png" alt="Emídio Belarmino - Quiropraxista em Interlagos">
+                <img src="img/profissional2.png" alt="Emídio Belarmino - Quiropraxista, Acupunturista e Massoterapeuta em Interlagos, São Paulo" width="400" height="500" loading="lazy">
             </div>
             <div class="sobre-texto">
                 <h3>Emídio Belarmino</h3>
                 <p style="margin-top: 15px;">
-                    Com uma trajetória sólida de mais de 25 anos de experiência na área da saúde e bem-estar, dedico minha carreira ao estudo e aplicação de terapias integrativas. Minha formação é pautada pela busca contínua por conhecimento, incluindo participações de destaque em congressos latino-americanos na República do Chile (1995) e na República Argentina (1997).<br>
-
-Iniciei minha capacitação técnica em 1989 com Acupuntura e Auriculoterapia pelo Senac, seguindo para especializações em Suplemento Ortopédico e Ortoníquia (1990). Ao longo dos anos, aprimorei minhas técnicas na Humaniversidade (Kiro Ki Do e Quiropraxia, 2002), no Centro de Estudos Shen Long (Acupuntura Sistêmica e Magnetoterapia) e, mais recentemente, certifiquei-me na técnica Eletro-Balance (Rio de Janeiro, 2022). 
+                    Olá, eu sou Emídio Belarmino. Estruturei este consultório em Interlagos com um propósito claro: tratar a causa real das dores na coluna e musculares, devolvendo sua mobilidade e bem-estar de forma segura, precisa e sem depender de medicamentos.<br><br>
+                    Com uma trajetória sólida de mais de 25 anos de experiência na área da saúde e bem-estar, dedico minha carreira ao estudo e aplicação de terapias integrativas. Minha formação é pautada pela busca contínua por conhecimento, incluindo participações de destaque em congressos latino-americanos na República do Chile (1995) e na República Argentina (1997).<br><br>
+                    Iniciei minha capacitação técnica em 1989 com Acupuntura e Auriculoterapia pelo Senac, seguindo para especializações em Suplemento Ortopédico e Ortoníquia (1990). Ao longo dos anos, aprimorei minhas técnicas na Humaniversidade (Kiro Ki Do e Quiropraxia, 2002), no Centro de Estudos Shen Long (Acupuntura Sistêmica e Magnetoterapia) e, mais recentemente, certifiquei-me na técnica Eletro-Balance (Rio de Janeiro, 2022).
                 </p>
                 <p style="margin-top: 10px;">
-                    Especialista em alinhamento vertebral e medicina tradicional chinesa, busco a causa raiz do problema para um tratamento duradouro.
+                    Como quiropraxista, acupunturista e massoterapeuta na Zona Sul de SP, busco o alinhamento vertebral e o equilíbrio integral para um tratamento duradouro.
                 </p>
+
+                <!-- Pilares em H3 para hierarquia semântica correta -->
+                <div class="pilares-sobre">
+                    <div class="pilar-card">
+                        <h3>Avaliação Individualizada</h3>
+                        <p>Análise detalhada da sua postura, histórico de dor e rotina antes de iniciar qualquer ajuste ou manobra.</p>
+                    </div>
+                    <div class="pilar-card">
+                        <h3>Alívio Real e Seguro</h3>
+                        <p>Combinação de ajuste quiroprático, acupuntura e liberação muscular para aliviar a dor já nas primeiras sessões.</p>
+                    </div>
+                    <div class="pilar-card">
+                        <h3>Biossegurança e Conforto</h3>
+                        <p>Maca higienizada a cada paciente, materiais descartáveis e ambiente tranquilo com hora marcada em Interlagos.</p>
+                    </div>
+                </div>
                 
-                <h4 style="margin-top: 20px;">Certificações:</h4>
+                <h3 style="margin-top: 25px; font-size: 1.1rem; color: var(--cor-secundaria);">Certificações:</h3>
                 <div class="certificados">
-                    <img src="img/certificadocompleto.jpeg" class="certificado-item" alt="Certificado 1">
+                    <img src="img/certificadocompleto.jpeg" class="certificado-item" alt="Certificado de Quiropraxia e Acupuntura - Emídio Belarmino" width="280" height="200" loading="lazy">
                     <!-- <img src="img/cerificado2.jpeg" class="certificado-item" alt="Certificado 2"> -->
                 </div>
             </div>
@@ -424,122 +646,139 @@ Iniciei minha capacitação técnica em 1989 com Acupuntura e Auriculoterapia pe
 
     <section id="especialista" class="especialista-section hidden">
         <div class="section-title">
-            <h2>Especialista em Dores</h2>
+            <h2>Especialista em Dores na Coluna e Articulações</h2>
             <span></span>
-            <p style="margin-top: 15px; color: #666;">Tratamento especializado para alívio imediato nas regiões:</p>
+            <p style="margin-top: 15px; color: #666;">Tratamento especializado em Interlagos para alívio imediato nas regiões e sintomas:</p>
         </div>
         <div class="dores-grid">
-            <div class="dor-item"><i class="fas fa-check-circle"></i> Coluna Cervical</div>
-            <div class="dor-item"><i class="fas fa-check-circle"></i> Ombro</div>
+            <div class="dor-item"><i class="fas fa-check-circle"></i> Coluna Cervical e Torcicolo</div>
+            <div class="dor-item"><i class="fas fa-check-circle"></i> Dor nos Ombros</div>
             <div class="dor-item"><i class="fas fa-check-circle"></i> Bursite</div>
-            <div class="dor-item"><i class="fas fa-check-circle"></i> Coluna Dorsal</div>
+            <div class="dor-item"><i class="fas fa-check-circle"></i> Coluna Dorsal (Costas)</div>
             <div class="dor-item"><i class="fas fa-check-circle"></i> Tendinite</div>
-            <div class="dor-item"><i class="fas fa-check-circle"></i> Nervo Ciático</div>
-            <div class="dor-item"><i class="fas fa-check-circle"></i> Coluna Lombar</div>
+            <div class="dor-item"><i class="fas fa-check-circle"></i> Nervo Ciático Inflamado</div>
+            <div class="dor-item"><i class="fas fa-check-circle"></i> Coluna Lombar Travada</div>
+            <div class="dor-item"><i class="fas fa-check-circle"></i> Hérnia de Disco</div>
             <div class="dor-item"><i class="fas fa-check-circle"></i> Joelho e Tornozelo</div>
         </div>
     </section>
 
-    <section id="ambiente" class="ambiente hidden">
-        <div class="section-title">
-            <h2>Nosso Espaço</h2>
+    <section id="ambiente" class="ambiente hidden" aria-roledescription="carrossel" aria-label="Fotos do consultório">
+        <div class="section-title" style="margin-bottom: 1.5rem;">
+            <h2>Nosso Espaço em Interlagos</h2>
             <span></span>
         </div>
-        <div class="galeria-wrapper">
-            <div class="foto-item">
-                <img src="img/FACHADA3.png" alt="Recepção">
+        <p class="carrossel-eyebrow">O Consultório • Rua Justino Nigro, 536 • Interlagos (a 100m da Estação Autódromo), São Paulo</p>
+        
+        <div class="carrossel-container">
+            <button class="carrossel-seta prev" aria-label="Foto anterior do consultório" onclick="moverCarrossel(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <div class="galeria-wrapper" id="carrosselEspaco" tabindex="0">
+                <div class="foto-item">
+                    <img src="img/FACHADA3.png" alt="Entrada do consultório Quiropraxia de Interlagos, em São Paulo" width="600" height="400">
+                </div>
+                <div class="foto-item">
+                    <img src="img/sala_procedimento2.jpeg" alt="Sala de atendimento de quiropraxia e ajuste de coluna em Interlagos" width="600" height="400" loading="lazy">
+                </div>
+                <div class="foto-item">
+                    <img src="img/materiaisquiropraxia.jpeg" alt="Equipamentos de quiropraxia, acupuntura e ventosaterapia higienizados" width="600" height="400" loading="lazy">
+                </div>
+                <div class="foto-item">
+                    <img src="img/escritorio.jpeg" alt="Consultório de avaliação de coluna para tratamento de dor lombar e nervo ciático" width="600" height="400" loading="lazy">
+                </div>
+                <div class="foto-item">
+                    <img src="img/sala_procedimento3.jpeg" alt="Maca de massoterapia clínica e liberação miofascial na Zona Sul de SP" width="600" height="400" loading="lazy">
+                </div>
+                <div class="foto-item">
+                    <img src="img/ceritficadoemidio.jpeg" alt="Certificações internacionais de Emídio Belarmino em Quiropraxia e Acupuntura" width="600" height="400" loading="lazy">
+                </div>
             </div>
-            <div class="foto-item">
-                <img src="img/sala_procedimento2.jpeg" alt="Sala Quiropraxia">
-            </div>
-            <div class="foto-item">
-                <img src="img/materiaisquiropraxia.jpeg" alt="Sala Acupuntura">
-            </div>
-            <div class="foto-item">
-                <img src="img/escritorio.jpeg" alt="Fachada da Clínica">
-            </div>
-            <div class="foto-item">
-                <img src="img/sala_procedimento3.jpeg" alt="Fachada da Clínica">
-            </div>
-            <div class="foto-item">
-                <img src="img/ceritficadoemidio.jpeg" alt="Fachada da Clínica">
-            </div>
+
+            <button class="carrossel-seta next" aria-label="Próxima foto do consultório" onclick="moverCarrossel(1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
         </div>
+
         <p style="text-align: center; margin-top: 10px; font-size: 0.9rem; color: #666;">
-            <i class="fas fa-arrows-alt-h"></i> Arraste para o lado para ver mais
+            <i class="fas fa-arrows-alt-h"></i> Arraste para o lado para ver mais fotos do espaço
         </p>
     </section>
 
     <section id="servicos" class="hidden">
         <div class="section-title">
-            <h2>Tratamentos e Valores</h2>
+            <h2>Quiropraxia, Acupuntura e Massoterapia: Tratamentos e Valores</h2>
             <span></span>
+            <p style="margin-top: 15px; color: #666; max-width: 750px; margin-left: auto; margin-right: auto;">
+                Atendimento personalizado em Interlagos, SP. Cada sessão é adaptada para a sua queixa de dor ou bem-estar — selecione abaixo para agendar pelo WhatsApp:
+            </p>
         </div>
         
         <div class="servicos-grid">
             <div class="servico-card">
                 <div class="servico-icone"><i class="fas fa-spa"></i></div>
                 <h3>Acupuntura</h3>
-                <p>Equilíbrio energético e tratamento de dores com técnica milenar.</p>
+                <p>Equilíbrio energético e alívio profundo de dores na coluna, ansiedade e inflamações com técnica milenar.</p>
                 <div class="preco">R$ 120,00</div>
                 <button class="btn-select" onclick="selecionarServico('Acupuntura')">Agendar</button>
             </div>
             <div class="servico-card">
                 <div class="servico-icone"><i class="fas fa-fire-alt"></i></div>
                 <h3>Ventosaterapia</h3>
-                <p>Melhora a circulação sanguínea e relaxa a musculatura.</p>
+                <p>Estímulo da circulação sanguínea local para oxigenar a musculatura, reduzir inflamações e soltar costas travadas.</p>
                 <div class="preco">R$ 100,00</div>
                 <button class="btn-select" onclick="selecionarServico('Ventosaterapia')">Agendar</button>
             </div>
             <div class="servico-card">
                 <div class="servico-icone"><i class="fas fa-bone"></i></div>
                 <h3>Quiropraxia</h3>
-                <p>Ajustes articulares para alívio de dores nas costas e pescoço.</p>
-                <p><b>Servical, Dorsal e Lombar</b></p>
+                <p>Ajustes articulares precisos para descomprimir nervos, aliviar dores nas costas, ciático e devolver a mobilidade.</p>
+                <p><b>Cervical, Dorsal e Lombar</b></p>
                 <div class="preco">R$ 150,00</div>
                 <button class="btn-select" onclick="selecionarServico('Quiropraxia')">Agendar</button>
             </div>
             <div class="servico-card">
                 <div class="servico-icone"><i class="fas fa-bolt"></i></div>
                 <h3>Eletro Balance</h3>
-                <p>Reequilíbrio bioenergético através de estímulos elétricos suaves.</p>
+                <p>Reequilíbrio bioenergético e neuromuscular através de estímulos elétricos suaves e precisos.</p>
                 <div class="preco">R$ 250,00</div>
                 <button class="btn-select" onclick="selecionarServico('Eletro Balance')">Agendar</button>
             </div>
             <div class="servico-card">
                 <div class="servico-icone"><i class="fas fa-microchip"></i></div>
                 <h3>Eletro Acupuntura</h3>
-                <p>Potencializa o efeito das agulhas com estímulos elétricos.</p>
+                <p>Potencializa o efeito analgésico e anti-inflamatório das agulhas com estímulos elétricos controlados.</p>
                 <div class="preco">R$ 250,00</div>
                 <button class="btn-select" onclick="selecionarServico('Eletro Acupuntura')">Agendar</button>
             </div>
             <div class="servico-card">
                 <div class="servico-icone"><i class="fas fa-circle-notch"></i></div>
                 <h3>Acupuntura Sistêmica</h3>
-                <p>Tratamento completo focando nos meridianos do corpo todo.</p>
+                <p>Tratamento completo focando nos meridianos do corpo todo para dores crônicas e reequilíbrio integral.</p>
                 <div class="preco">R$ 130,00</div>
                 <button class="btn-select" onclick="selecionarServico('Acupuntura Sistêmica')">Agendar</button>
             </div>
 
             <div class="servico-card">
                 <div class="servico-icone"><i class="fas fa-circle-notch"></i></div>
-                <h3>Acupuntura Normal</h3>
-                <p>Tratamento completo focando nos meridianos do corpo todo.</p>
+                <h3>Acupuntura Tradicional</h3>
+                <p>Tratamento focado nos meridianos corporais para alívio de dores articulares e bem-estar geral.</p>
                 <div class="preco">R$ 120,00</div>
                 <button class="btn-select" onclick="selecionarServico('Acupuntura Normal')">Agendar</button>
             </div>
 
             <div class="servico-card">
                 <div class="servico-icone"><i class="fas fa-magnet"></i></div>
-                <h3>Miognetoterapia</h3>
-                <p>Uso de campos magnéticos nos pontos de acupuntura.</p>
+                <h3>Magnetoterapia</h3>
+                <p>Uso terapêutico de campos magnéticos nos pontos de acupuntura para regeneração e alívio de dores.</p>
                 <div class="preco">R$ 120,00</div>
                 <button class="btn-select" onclick="selecionarServico('Acupuntura Magnetoterapia')">Agendar</button>
             </div>
             <div class="servico-card">
                 <div class="servico-icone"><i class="fas fa-hands"></i></div>
                 <h3>Massoterapia</h3>
-                <p>Massagem terapêutica para alívio de estresse e tensão.</p>
+                <p>Massagem terapêutica clínica para soltar nódulos de tensão, aliviar dores nas costas, pescoço e ombros.</p>
                 <div class="preco">R$ 120,00</div>
                 <button class="btn-select" onclick="selecionarServico('Massoterapia')">Agendar</button>
             </div>
@@ -547,7 +786,7 @@ Iniciei minha capacitação técnica em 1989 com Acupuntura e Auriculoterapia pe
             <div class="servico-card">
                 <div class="servico-icone"><i class="fas fa-hands"></i></div>
                 <h3>Auriculoterapia</h3>
-                <p>Técnica terapêutica que estimula pontos específicos no pavilhão auricular.</p>
+                <p>Técnica terapêutica que estimula pontos específicos no pavilhão auricular para dores, estresse e equilíbrio.</p>
                 <div class="preco">R$ 120,00</div>
                 <button class="btn-select" onclick="selecionarServico('Auriculoterapia')">Agendar</button>
             </div>
@@ -555,59 +794,63 @@ Iniciei minha capacitação técnica em 1989 com Acupuntura e Auriculoterapia pe
             <div class="servico-card">
                 <div class="servico-icone"><i class="fas fa-stream"></i></div>
                 <h3>Alinhamento da Coluna</h3>
-                <p>Técnicas manuais para correção postural.</p>
+                <p>Técnicas manuais específicas para correção postural, descompressão vertebral e alívio de hérnia de disco.</p>
                 <div class="preco">R$ 120,00</div>
                 <button class="btn-select" onclick="selecionarServico('Alinhamento da Coluna')">Agendar</button>
             </div>
             <div class="servico-card">
                 <div class="servico-icone"><i class="fas fa-hand-point-up"></i></div>
                 <h3>Do-in</h3>
-                <p>Automassagem e pressão nos pontos dos meridianos.</p>
+                <p>Pressão terapêutica nos pontos dos meridianos para alívio rápido de tensões e dores agudas.</p>
                 <div class="preco">R$ 120,00</div>
                 <button class="btn-select" onclick="selecionarServico('Do-in')">Agendar</button>
             </div>
             <div class="servico-card">
                 <div class="servico-icone"><i class="fas fa-hand-holding-heart"></i></div>
                 <h3>Shiatsu</h3>
-                <p>Pressão com os dedos para equilibrar o fluxo de energia vital.</p>
+                <p>Pressão firme com os dedos nos canais de energia para relaxar a musculatura das costas e equilibrar o corpo.</p>
                 <div class="preco">R$ 120,00</div>
                 <button class="btn-select" onclick="selecionarServico('Shiatsu')">Agendar</button>
             </div>
             <div class="servico-card">
                 <div class="servico-icone"><i class="fas fa-spa"></i></div>
-                <h3>Chinesa</h3>
-                <p>Utiliza a inserção de agulhas em pontos específicos do corpo para promover o equilíbrio da saúde</p>
+                <h3>Medicina Chinesa</h3>
+                <p>Aplicação de técnicas orientais em pontos específicos do corpo para promover o equilíbrio completo da saúde.</p>
                 <div class="preco">R$ 120,00</div>
                 <button class="btn-select" onclick="selecionarServico('Chinesa')">Agendar</button>
             </div>
             <div class="servico-card">
                 <div class="servico-icone"><i class="fas fa-leaf"></i></div>
                 <h3>Massagem Relaxante</h3>
-                <p>Técnica suave para promover relaxamento profundo e bem-estar.</p>
+                <p>Técnica manual suave para promover relaxamento profundo, reduzir o cansaço físico e restaurar o bem-estar.</p>
                 <div class="preco">R$ 120,00</div>
                 <button class="btn-select" onclick="selecionarServico('Massagem Relaxante')">Agendar</button>
             </div>
             <div class="servico-card">
                 <div class="servico-icone"><i class="fas fa-hand-holding-medical"></i></div>
                 <h3>Liberação Miofascial</h3>
-                <p>Técnica manual profunda para alívio de tensões musculares.</p>
+                <p>Técnica manual profunda que destrava a fáscia muscular rígida, eliminando dores crônicas e contraturas.</p>
                 <div class="preco" style="font-size: 1.15rem; line-height: 1.3;">
-                    1h R$150,00<br>
+                    1h R$ 150,00<br>
                     1h30 R$ 180,00
                 </div>
                 <button class="btn-select" onclick="selecionarServico('Liberação Miofascial')">Agendar</button>
             </div>
-            </div>
+        </div>
+
         <p class="mobile-only-hint">
             <i class="fas fa-arrows-alt-h"></i> Arraste para o lado para ver mais serviços
+        </p>
+        <p class="servicos-nota">
+            Aceitamos Pix, dinheiro, débito e crédito • Atendimento presencial com hora marcada em Interlagos, SP.
         </p>
     </section>
 
     <section id="feedbacks" class="feedback-section hidden">
         <div class="section-title">
-            <h2>O que dizem nossos pacientes</h2>
+            <h2>O que Dizem Nossos Pacientes em Interlagos</h2>
             <span></span>
-            <p style="margin-top: 15px; color: #666;">Histórias reais de recuperação e bem-estar.</p>
+            <p style="margin-top: 15px; color: #666;">Histórias reais de recuperação de dores na coluna e bem-estar.</p>
         </div>
         
         <div class="feedback-grid">
@@ -661,24 +904,64 @@ Iniciei minha capacitação técnica em 1989 com Acupuntura e Auriculoterapia pe
         </p>
     </section>
 
+    <!-- NOVA SEÇÃO: DÚVIDAS FREQUENTES (FAQ SEO LOCAL) -->
+    <section id="duvidas" class="faq-section hidden">
+        <div class="section-title">
+            <h2>Dúvidas sobre Quiropraxia, Acupuntura e Massoterapia</h2>
+            <span></span>
+            <p style="margin-top: 15px; color: #666;">Respostas para as principais perguntas antes de agendar sua avaliação gratuita:</p>
+        </div>
+
+        <div class="faq-container">
+            <details class="faq-item">
+                <summary>1. Quiropraxia dói? Os estalos na coluna são seguros?</summary>
+                <p>Não dói. O ajuste quiroprático é uma manobra rápida, precisa e indolor que gera alívio imediato. O barulho de estalo é apenas a liberação natural de pequenas bolhas de gás da articulação quando ela é descomprimida — totalmente seguro quando feito por profissional qualificado com mais de 25 anos de experiência.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>2. Qual a diferença entre quiropraxia, acupuntura e massoterapia?</summary>
+                <p>A quiropraxia foca no alinhamento das articulações e vértebras da coluna, tirando a pressão sobre os nervos. A massoterapia e a liberação miofascial trabalham diretamente nos músculos e tendões, desfazendo contraturas e nós de tensão. Já a acupuntura atua no equilíbrio energético e no alívio profundo da dor e inflamação. Aqui no consultório em Interlagos podemos unir as técnicas conforme a sua necessidade.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>3. Quem tem hérnia de disco ou nervo ciático inflamado pode fazer quiropraxia?</summary>
+                <p>Sim! A quiropraxia e a acupuntura estão entre os tratamentos conservadores mais eficazes para hérnia de disco e dor ciática sem cirurgia. Avaliamos o seu caso gratuitamente e aplicamos técnicas específicas e seguras para descomprimir a raiz nervosa, reduzindo a dor, a queimação e o formigamento nas pernas.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>4. Quantas sessões são necessárias para destravar a coluna ou aliviar a dor?</summary>
+                <p>Na grande maioria dos casos você já sai da primeira sessão sentindo muito alívio e mais liberdade de movimento. O número total de sessões depende do tempo em que você convive com a dor e da sua rotina — na avaliação inicial montamos a recomendação exata para você.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>5. Onde fica o consultório? Atende quem mora perto de Interlagos?</summary>
+                <p>Nosso consultório fica na Rua Justino Nigro, 536 (Interlagos / Jardim Regis), Zona Sul de São Paulo, a apenas 100 metros da Estação Autódromo da CPTM. Recebemos pacientes de Interlagos, Cidade Dutra, Socorro, Veleiros, Santo Amaro, Jardim Marajoara, Capela do Socorro e Grajaú.</p>
+            </details>
+        </div>
+    </section>
+
     <section id="contato" class="ambiente hidden">
         <div class="section-title">
-            <h2>Localização e Agendamento</h2>
+            <h2>Consultório de Quiropraxia e Massoterapia em Interlagos, SP</h2>
             <span></span>
+            <p style="margin-top: 15px; color: #666;">Preencha os dados ao lado e sua mensagem chega pronta no nosso WhatsApp. Atendimento com hora marcada.</p>
         </div>
         <div class="contato-container">
             
             <div class="mapa-box">
-    <iframe src="https://maps.google.com/maps?q=R.+Justino+Nigro,+536+-+Jardim+Regis&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.099322956916!2d-46.690502599999995!3d-23.7081469!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce4fb82b1fc645%3A0x6d4c38e11e520252!2sQuiropraxia%20de%20Interlagos!5e0!3m2!1spt-BR!2sbr!4v1793206533809!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
     
-    <div style="text-align: center; padding: 10px;">
-        <p style="margin-bottom: 15px; font-weight: 600; color: #004d40; font-size: 0.95rem;">
-            <i class="fas fa-map-marker-alt"></i> A 100m da estação Autódromo
-        </p>
+                <div style="text-align: center; padding: 12px 10px;">
+                    <p style="margin-bottom: 5px; font-weight: 600; color: #004d40; font-size: 0.95rem;">
+                        <i class="fas fa-map-marker-alt"></i> Rua Justino Nigro, 536 - Interlagos (Jardim Regis), São Paulo - SP
+                    </p>
+                    <p style="margin-bottom: 12px; color: #555; font-size: 0.85rem;">
+                        A 100m da Estação Autódromo • CEP 04820-000
+                    </p>
 
-        <a href="https://www.google.com/maps/search/?api=1&query=R.+Justino+Nigro,+536+-+Jardim+Regis" target="_blank" class="btn" style="padding: 8px 20px; font-size: 0.9rem;">Abrir no GPS <i class="fas fa-external-link-alt"></i></a>
-    </div>
-</div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=R.+Justino+Nigro,+536+-+Jardim+Regis" target="_blank" rel="noopener noreferrer" class="btn" style="padding: 8px 20px; font-size: 0.9rem;">Abrir no GPS <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
 
             <div class="form-box">
                 <form id="whatsappForm" onsubmit="enviarWhatsapp(event)">
@@ -707,9 +990,16 @@ Iniciei minha capacitação técnica em 1989 com Acupuntura e Auriculoterapia pe
 
     <footer>
         <div class="footer-content">
-            <p>Saúde e bem-estar ao seu alcance.</p>
+            <p><strong>Quiropraxia de Interlagos — Emídio Belarmino</strong></p>
+            <p class="footer-nap">
+                Rua Justino Nigro, 536 - Interlagos / Jardim Regis, São Paulo - SP, CEP 04820-000 (a 100m da Estação Autódromo)<br>
+                WhatsApp: (11) 98984-0063 • Atendimento: Terça a Sábado, das 08h às 19h
+            </p>
+            <p class="footer-bairros">
+                Quiropraxia, acupuntura, massoterapia clínica, liberação miofascial e tratamento de coluna para quem mora ou trabalha em Interlagos, Jardim Regis, Cidade Dutra, Socorro, Veleiros, Santo Amaro, Jardim Marajoara e Zona Sul de São Paulo.
+            </p>
             <br>
-            <a href="https://www.instagram.com/emidiobelarmino?igsh=MXg5MXRoY3o3eGp1dA==" target="_blank" class="social-link">
+            <a href="https://www.instagram.com/emidiobelarmino?igsh=MXg5MXRoY3o3eGp1dA==" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram de Emídio Belarmino">
                 <i class="fab fa-instagram"></i>
             </a>
             <br><br>
@@ -718,6 +1008,27 @@ Iniciei minha capacitação técnica em 1989 com Acupuntura e Auriculoterapia pe
     </footer>
 
     <script>
+        // 0. Rastreamento de Conversão (dataLayer) e Captura de UTMs
+        function registrarEventoLead(origem) {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                event: 'geraLead',
+                lead_origem: origem
+            });
+        }
+
+        function obterParametrosUTM() {
+            const params = new URLSearchParams(window.location.search);
+            const chaves = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'gclid'];
+            const encontrados = [];
+            chaves.forEach(chave => {
+                if (params.has(chave) && params.get(chave)) {
+                    encontrados.push(`${chave}=${params.get(chave)}`);
+                }
+            });
+            return encontrados.length > 0 ? `\n\n[Ref: ${encontrados.join(' | ')}]` : '';
+        }
+
         // 1. Controle do Menu Mobile
         function toggleMenu() {
             const nav = document.getElementById('nav-list');
@@ -726,12 +1037,13 @@ Iniciei minha capacitação técnica em 1989 com Acupuntura e Auriculoterapia pe
 
         // 2. Lógica de Seleção de Serviço
         function selecionarServico(nomeServico) {
+            registrarEventoLead('card_servico_' + nomeServico);
             document.getElementById('servico').value = nomeServico;
             document.getElementById('contato').scrollIntoView({ behavior: 'smooth' });
             document.getElementById('servico').style.borderColor = '#00897b';
         }
 
-        // 3. Enviar para o WhatsApp
+        // 3. Enviar para o WhatsApp (com UTMs anexadas se existirem)
         function enviarWhatsapp(e) {
             e.preventDefault();
             const telefoneEmpresa = "5511989840063"; 
@@ -744,7 +1056,11 @@ Iniciei minha capacitação técnica em 1989 com Acupuntura e Auriculoterapia pe
                 alert("Por favor, selecione um serviço na tabela de preços.");
                 return;
             }
-            const mensagem = `Olá! Me chamo *${nome}*.\nGostaria de agendar o serviço: *${servico}*.\nPreferencia: ${data}`;
+
+            registrarEventoLead('form_agendar');
+
+            const sufixoUTM = obterParametrosUTM();
+            const mensagem = `Olá! Me chamo *${nome}*.\nGostaria de agendar o serviço: *${servico}*.\nPreferência: ${data || 'A combinar'}${sufixoUTM}`;
             const url = `https://wa.me/${telefoneEmpresa}?text=${encodeURIComponent(mensagem)}`;
             window.open(url, '_blank');
         }
@@ -759,6 +1075,43 @@ Iniciei minha capacitação técnica em 1989 com Acupuntura e Auriculoterapia pe
         });
         const hiddenElements = document.querySelectorAll('.hidden');
         hiddenElements.forEach((el) => observer.observe(el));
+
+        // 5. Comportamento Automático e Acessível do Carrossel do Espaço
+        const carrossel = document.getElementById('carrosselEspaco');
+        let carrosselIntervalo = null;
+        let carrosselPausado = false;
+        const prefereSemMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function moverCarrossel(direcao) {
+            if (!carrossel) return;
+            const larguraItem = carrossel.querySelector('.foto-item').offsetWidth + 20;
+            const maxScroll = carrossel.scrollWidth - carrossel.clientWidth;
+
+            if (direcao === 1 && carrossel.scrollLeft >= maxScroll - 10) {
+                carrossel.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                carrossel.scrollBy({ left: direcao * larguraItem, behavior: 'smooth' });
+            }
+        }
+
+        function iniciarAutoplayCarrossel() {
+            if (prefereSemMovimento || !carrossel) return;
+            carrosselIntervalo = setInterval(() => {
+                if (!carrosselPausado) {
+                    moverCarrossel(1);
+                }
+            }, 4000);
+        }
+
+        if (carrossel) {
+            carrossel.addEventListener('mouseenter', () => carrosselPausado = true);
+            carrossel.addEventListener('mouseleave', () => carrosselPausado = false);
+            carrossel.addEventListener('touchstart', () => carrosselPausado = true, { passive: true });
+            carrossel.addEventListener('touchend', () => carrosselPausado = false, { passive: true });
+            carrossel.addEventListener('focusin', () => carrosselPausado = true);
+            carrossel.addEventListener('focusout', () => carrosselPausado = false);
+            iniciarAutoplayCarrossel();
+        }
     </script>
 </body>
 </html>
